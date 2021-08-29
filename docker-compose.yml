@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  ############################################
+  # FRONTEND
+  ############################################
+
+  ############################################
+  # BACKEND
+  ############################################
+  backend:
+    build: 
+      context: ./backend
+    volumes:
+      - ./backend/:/app
+      - /app/node_modules
+    ports:
+      - 3000:3030
+    environment:
+      - PORT=3030
+    depends_on:
+      - postgres
+
+  ############################################
+  # DATABASE
+  ############################################
+  postgres:
+    image: postgres:alpine
+    volumes:
+      - postgres_db:/var/lib/postgresql/data 
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=vittarr
+      - POSTGRES_PASSWORD=vittarr
+      - POSTGRES_DB=reviewqr
+
+volumes:
+  postgres_db:
