@@ -28,8 +28,6 @@ services:
     image: postgres:alpine
     volumes:
       - postgres_db:/var/lib/postgresql/data 
-    ports:
-      - 5432:5432
     environment:
       - POSTGRES_USER=vittarr
       - POSTGRES_PASSWORD=vittarr

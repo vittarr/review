@@ -1,7 +1,7 @@
-FROM node:14-alpine
+FROM node:lts-alpine
 WORKDIR /app
-COPY package* ./
+COPY package*.json ./
 RUN npm install
 COPY . ./
 EXPOSE 3030
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]

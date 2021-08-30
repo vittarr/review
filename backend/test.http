@@ -1,0 +1,22 @@
+GET http://localhost:3000/places
+
+###
+
+POST http://localhost:3000/places
+content-type: application/json
+
+{
+    "address": "some1 address",
+    "phone": "some phone",
+    "description": "some description"
+}
+
+###
+
+POST http://localhost:3000/codes
+content-type: application/json
+
+{
+    "type": "some type",
+    "message": "some message"
+}
