@@ -8,7 +8,7 @@ const { nanoid } = require('nanoid')
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const codes = sequelizeClient.define('codes', {
-    ID: {
+    id: {
       type: DataTypes.STRING,
       allowNull: false,
       primaryKey: true,

@@ -8,11 +8,15 @@ const { nanoid } = require('nanoid')
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const places = sequelizeClient.define('places', {
-    ID: {
+    id: {
       type: DataTypes.STRING,
       allowNull: false,
       primaryKey: true,
       defaultValue: () => nanoid(10)
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: true
     },
     address: {
       type: DataTypes.STRING,
@@ -38,6 +42,7 @@ module.exports = function (app) {
   places.associate = function (models) {
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
+    places.belongsTo(models.users)
     places.hasMany(models.codes)
   };
 

@@ -6,7 +6,8 @@ POST http://localhost:3000/places
 content-type: application/json
 
 {
-    "address": "some1 address",
+    "name": "some name",
+    "address": "some address",
     "phone": "some phone",
     "description": "some description"
 }
